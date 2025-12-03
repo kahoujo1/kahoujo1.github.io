@@ -1,0 +1,118 @@
+/*---------------- body styling-------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background: #080808;
+    color: #fff;
+    padding-top: 4.5rem; /* <-- ADD THIS: Creates space for the fixed header (0.7rem padding + estimated height) */
+    padding-bottom: 4rem; /* <-- ADD THIS: Creates space for the fixed footer (1rem padding + estimated height) */
+    min-height: 100vh; /* 100% of Viewport Height */
+    display: flex;
+    flex-direction: column;
+}
+/*---------------- header containing the navigation bar -------------- */
+header {
+    background: #1b1b1b;
+    width: 100%;
+    height: 2rem;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 0.7rem 2.5rem; /* Add internal padding/margin to the sides of the bar */
+    /* 1. CRITICAL: Turn the header into a Flex container */
+    display: flex;
+   /* CHANGE THIS LINE: Forces the content group (logo + nav) to the center */
+    justify-content: center; 
+    /* Vertically centers them (align-items should remain) */
+    align-items: center; /* 2. CRITICAL: Push the logo to the left and the nav to the right */
+    gap: 10rem;
+    font-size: 1.5rem;
+}
+.logo {
+    display: flex; /* Makes the logo a flex container */
+    align-items: center; /* Vertically centers the items within the logo */
+}
+.robot-icon {
+    width: 3.5rem;   /* Sets the size of the robot */
+    height: 3.5rem;
+    vertical-align: middle; /* Aligns it with the text */
+}
+.robot-name {
+    margin-right: 0.5rem; /* Space between robot and "Josef" */
+}
+/* Define the wave animation */
+@keyframes robotWave {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(-100deg); }  /* Wave Down */
+    100% { transform: rotate(0deg); }  /* Back to normal */
+}
+/* Trigger the animation when hovering over the robot icon */
+/* Note: We hover the SVG (.robot-icon), but animate the ARM (.waving-arm) */
+.robot-icon:hover .waving-arm {
+        animation: robotWave 1s infinite ease-in-out;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Update nav a styling */
+nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.5rem 1rem; /* Reduced padding for a smaller vertical size */
+    margin-left: 1.25rem; /* Space between the links */
+}
+/* ------------- Active nav -------------- */
+nav .active {
+    color: #ca6d37;
+}
+
+/*---------------- introduction block -------------- */
+.profile-pic {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+.introduction {
+    /* 1. Define the width (use a relative or max width) */
+    width: 85%; 
+    max-width: 900px; /* Ensures the block doesn't get too wide on huge screens */
+    
+    /* 2. Center the block horizontally */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #1b1b1b;
+    /* 3. Add internal spacing and styling (optional but recommended) */
+    padding: 60px 40px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(202, 109, 55, 1); 
+    position: relative;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+
+}
+
+.introduction p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+/*---------------- footer copyright -------------- */
+footer {
+    color: #fff;
+    text-align: center;
+    padding-top: 2rem;
+    /* margin-top: 2rem; */
+
+}
